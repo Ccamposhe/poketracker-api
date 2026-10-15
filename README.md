@@ -6,6 +6,7 @@ API RESTful em Java e Spring Boot para registrar os Pokémon capturados por trei
 ![Spring Boot](https://img.shields.io/badge/Spring_Boot-4.1.1-6DB33F?style=for-the-badge&logo=spring-boot)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-4169E1?style=for-the-badge&logo=postgresql)
 ![Docker](https://img.shields.io/badge/Docker-Enabled-2496ED?style=for-the-badge&logo=docker)
+![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow?style=for-the-badge)
 
 ---
 
@@ -28,6 +29,8 @@ API RESTful em Java e Spring Boot para registrar os Pokémon capturados por trei
 - Preenchimento automático do ID da Pokédex, nome oficial e sprite via PokéAPI
 - Validação de nível mínimo conforme a cadeia de evolução
 - Validação de jogo: o Pokémon precisa existir na versão escolhida
+- Apelido (`nickname`) opcional
+- Data de captura (`capturedAt`) opcional, assumindo a data atual quando não enviada
 
 ---
 
@@ -71,7 +74,7 @@ Exemplo de cadastro:
 curl -X POST http://localhost:8080/api/v1/pokemon \
   -H "Authorization: Bearer SEU_TOKEN" \
   -H "Content-Type: application/json" \
-  -d '{"name":"charizard","nickname":"Zard","level":36,"game":"YELLOW"}'
+  -d '{"name":"charizard","nickname":"Zard","level":36,"game":"YELLOW","capturedAt":"2026-10-12""}'
 ```
 
 ---
