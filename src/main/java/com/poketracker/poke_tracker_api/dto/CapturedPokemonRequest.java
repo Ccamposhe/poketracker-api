@@ -13,6 +13,8 @@ public record CapturedPokemonRequest(
         @NotBlank(message = "O nome é obrigatorio")
         String name,
 
+        boolean shiny,
+
         String nickname,
 
         @NotNull(message = "O level é obrigatorio")

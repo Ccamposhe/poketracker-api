@@ -38,8 +38,9 @@ public class CapturedPokemonService {
         pokemon.setNickname(request.nickname());
         pokemon.setLevel(request.level());
         pokemon.setGame(request.game());
+        pokemon.setShiny(request.shiny());
+        pokemon.setSpriteUrl(spriteFor(pokeApiData, request.shiny()));
         pokemon.setCapturedAt(request.capturedAt() != null ? request.capturedAt() : LocalDate.now());
-        pokemon.setSpriteUrl(pokeApiData.sprites() != null ? pokeApiData.sprites().frontDefault() : null);
 
         return capturedPokemonRepository.save(pokemon);
     }
@@ -71,8 +72,9 @@ public class CapturedPokemonService {
         pokemon.setNickname(request.nickname());
         pokemon.setLevel(request.level());
         pokemon.setGame(request.game());
+        pokemon.setShiny(request.shiny());
+        pokemon.setSpriteUrl(spriteFor(pokeApiData, request.shiny()));
         pokemon.setCapturedAt(request.capturedAt() != null ? request.capturedAt() : pokemon.getCapturedAt());
-        pokemon.setSpriteUrl(pokeApiData.sprites() != null ? pokeApiData.sprites().frontDefault() : null);
 
         return capturedPokemonRepository.save(pokemon);
     }
@@ -119,5 +121,10 @@ public class CapturedPokemonService {
                     pokeApiData.name() + " não existe no jogo " + game
             );
         }
+    }
+
+    private String spriteFor(PokeApiResponse data, boolean shiny){
+        if (data.sprites() == null) return null;
+        return shiny ? data.sprites().frontShiny() : data.sprites().frontDefault();
     }
 }

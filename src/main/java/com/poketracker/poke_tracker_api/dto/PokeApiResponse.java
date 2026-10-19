@@ -11,8 +11,9 @@ public record PokeApiResponse(
         @JsonProperty("game_indices") List<GameIndex> gameIndices
 ) {
     public record Sprites(
-            @JsonProperty("front_default")
-            String frontDefault
+            @JsonProperty("front_default") String frontDefault,
+            @JsonProperty("front_shiny") String frontShiny
+
     ){}
 
     public record GameIndex(

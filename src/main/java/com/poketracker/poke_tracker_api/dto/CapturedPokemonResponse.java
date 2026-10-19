@@ -9,6 +9,7 @@ public record CapturedPokemonResponse (
         Long id,
         Long pokedexId,
         String name,
+        boolean shiny,
         String nickname,
         Integer level,
         Game game,
@@ -17,7 +18,7 @@ public record CapturedPokemonResponse (
 ) {
     public static CapturedPokemonResponse from(CapturedPokemon p){
         return new CapturedPokemonResponse(
-                p.getId(), p.getPokedexId(), p.getName(), p.getNickname(),
+                p.getId(), p.getPokedexId(), p.getName(), p.isShiny(), p.getNickname(),
                 p.getLevel(), p.getGame(), p.getSpriteUrl(), p.getCapturedAt()
         );
     }

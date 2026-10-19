@@ -36,6 +36,9 @@ public class CapturedPokemon {
     @Column(nullable = false, length = 50)
     private String name;
 
+    @Column(nullable = false)
+    private boolean shiny;
+
     private String nickname;
 
     @Column(nullable = false)
@@ -44,6 +47,8 @@ public class CapturedPokemon {
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private Game game;
+
+
 
     private String spriteUrl;
 
